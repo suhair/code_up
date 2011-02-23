@@ -1,0 +1,17 @@
+KITABU_ROOT = File.dirname(__FILE__)
+ENV['KITABU_NAME'] ||= File.basename(KITABU_ROOT)
+require "kitabu/tasks"
+require "kitabu"
+
+desc "Generate HTML from markup files"
+task :html do
+  Kitabu::Base.generate_html
+end
+
+
+desc "Generate PDF from markup files"
+task :pdf => :html do
+  Kitabu::Base.generate_pdf
+  puts "Your PDF has been generated. Check it out the output directory!"
+  sleep(1) && system("open #{Kitabu::Base.pdf_path}") if RUBY_PLATFORM =~ /darwin/ && ENV["AUTO_OPEN"] == "1"
+end

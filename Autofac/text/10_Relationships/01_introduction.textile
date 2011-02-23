@@ -1,0 +1,5 @@
+h2. Relationship Types
+
+Dependency injection is primarily concerened with the relation types among the components and satisfying these relationships in a dynamic way. The most primitive relationship is a simple *needy* dependency. This is expressed as A needs B to carry out the given business task. All of the dependency injection frameworks are feature rich in satisying this simple dependency needs and most of the components are simple enough to only depend on this type of dependency resolving. 
+
+As the application or framework matures there arises the need to support other advanced type of relationships. An example is A ceates an instance of B. In this case traditionally the developers resorted to anti-patterns like service location by directly referencing the container inside the component A for creating an instance of component B. Autofac has native support for these types of advanced dependencies.

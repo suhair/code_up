@@ -1,0 +1,10 @@
+h2. Introduction 
+
+Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes so that applications stay easy to change as they grow in size and complexity. This is achieved by treating regular .NET classes as components.
+
+    syntax(cs). builder.Register(c => new TaskController(c.Resolve<ITaskRepository>()));
+    builder.RegisterType<TaskController>();
+    builder.RegisterInstance(new TaskController());
+
+Above is a code snippet
+    
